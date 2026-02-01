@@ -1,0 +1,10 @@
+ipython
+lifelines
+matplotlib
+numpy
+pandas
+pyranges
+requests
+scipy
+scikit-learn
+tqdm
