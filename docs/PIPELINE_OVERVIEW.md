@@ -1,41 +1,60 @@
-# Pipeline overview
+# Pipeline overview (V7)
 
-This repository contains a GitHub-ready, documented Jupyter notebook that performs an end-to-end CNV workflow for the **MMRF CoMMpass** project through the **NCI Genomic Data Commons (GDC)** API.
+This document summarizes the stages implemented in the notebook:
 
-## High-level stages
+`CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented(_NO_OUTPUTS).ipynb`
 
-1. **Setup**
-   - Colab/Jupyter configuration, imports, and runtime options.
+## Inputs
 
-2. **Configuration & provenance**
-   - Defines `RUN_ID`, output folders, thresholds, and API endpoints.
+Typical inputs (file names may vary depending on the release/source):
 
-3. **Data discovery & download**
-   - Lists CNV files via the GDC `files` endpoint.
-   - Downloads raw CNV files with integrity checks.
+- CNV segment files (from GDC MMRF-COMMPASS, Copy Number Segment / similar)
+- Clinical table (e.g., `clinical.tsv`)
+- Follow-up table (e.g., `follow_up.tsv`)
 
-4. **Canonical CNV table**
-   - Loads CNV segments into a single canonical table (`df_cnvs_final`).
-   - Normalizes schema and performs QC.
+> The pipeline is written to work with **publicly accessible** artifacts via GDC whenever possible.  
+> Some CoMMpass data are controlled-access; ensure you comply with the data-use terms for your source.
 
-5. **Recurrence**
-   - Exact breakpoint (SegmentID), cytoband overlap, and fixed 1Mb bin overlap.
+## Stages
 
-6. **Clinical & survival**
-   - Builds OS outcomes without imputation.
-   - Cox regression and Kaplan–Meier summaries.
-   - Optional clustering and cluster-level survival.
+1. **Environment + run configuration**
+   - Creates a run folder: `outputs/run_<RUN_ID>/...`
+   - Captures versions, timestamps, and key parameters.
 
-## Outputs
+2. **Load / harmonize CNV segments**
+   - Standardizes chromosome, start/end coordinates, sample identifiers
+   - Generates stable segment identifiers and harmonized CNV type fields
 
-Results are written to:
-- `outputs/run_<RUN_ID>/processed/`
-- `outputs/run_<RUN_ID>/results/`
-- `outputs/run_<RUN_ID>/logs/`
+3. **QC + basic summaries**
+   - Sample counts, missingness checks, coordinate sanity
+   - Per-sample CNV burden summaries (as available from segments)
 
-The notebook documents the key files at the end (see the “End — main outputs” section).
+4. **Recurrence summaries**
+   - Exact `SegmentID` recurrence (breakpoint-sensitive)
+   - Cytoband overlap recurrence (more stable)
+   - Fixed-bin recurrence (default 1 Mb bins)
 
-## Reproducibility tips
+5. **Clinical integration**
+   - Builds an OS dataset (no imputation) from clinical + follow-up
+   - Links patients to CNV features (presence/absence and/or burden summaries)
 
-- Prefer the `*_NO_OUTPUTS.ipynb` notebook for GitHub (small diffs, cleaner history).
-- Consider enabling notebook output stripping in CI (e.g., `nbstripout`) if you commit executed notebooks.
+6. **Association analyses**
+   - Example: CNV frequency differences by ISS stage (with multiple-testing control)
+
+7. **Survival analyses**
+   - Kaplan–Meier plots for presence/absence of top recurrent CNVs
+   - Cox proportional hazards models (with covariate adjustment where available)
+
+8. **(Optional) clustering**
+   - Exploratory clustering for hypothesis generation
+
+## Key outputs (examples)
+
+- `processed/file_metadata.tsv`
+- `processed/cnv_segments.parquet`
+- `results/cnv_recurrence_by_cytoband.tsv`
+- `results/cnv_recurrence_by_bins_1Mb.tsv`
+- `results/cox_results_*.tsv`
+- `results/km_plots_*.png`
+
+Exact file names can differ depending on run options; the notebook prints the final output inventory.

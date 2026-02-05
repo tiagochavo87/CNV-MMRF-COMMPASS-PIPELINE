@@ -1,10 +1,15 @@
-ipython
-lifelines
-matplotlib
+# Core
 numpy
 pandas
-pyranges
 requests
+tqdm
+matplotlib
 scipy
 scikit-learn
-tqdm
+
+# CNV + survival
+pyranges
+lifelines
+
+# Parquet support
+pyarrow

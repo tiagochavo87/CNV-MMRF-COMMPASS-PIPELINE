@@ -1,18 +1,13 @@
 # Python
 __pycache__/
 *.py[cod]
-.Python
+*.so
 .venv/
 venv/
-env/
 .env
-*.egg-info/
-.pytest_cache/
-
-# Jupyter
 .ipynb_checkpoints/
 
-# Outputs
+# Outputs/artifacts
 outputs/
 *.log
 
