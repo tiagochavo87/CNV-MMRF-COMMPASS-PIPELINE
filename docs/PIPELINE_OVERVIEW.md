@@ -1,8 +1,8 @@
-# Pipeline overview (V7)
+# Pipeline overview (V10)
 
 This document summarizes the stages implemented in the notebook:
 
-`CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented(_NO_OUTPUTS).ipynb`
+`CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented.ipynb`
 
 ## Inputs
 

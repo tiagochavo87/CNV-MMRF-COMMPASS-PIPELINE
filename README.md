@@ -4,21 +4,18 @@ A GitHub-ready Jupyter notebook pipeline to **process**, **QC**, and **analyze**
 
 This repository focuses on *downstream* CNV segment analytics (recurrence summaries, cytoband / fixed-bin aggregation, clinical integration, and survival/staging evaluation). The pipeline is designed to run in **Google Colab** or locally.
 
-> Updated notebook version: **V7** (2026-02-05)
+> Updated notebook version: **V10** (2026-02-19)
 
 ## Repository contents
 
 - `CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented.ipynb`  
   Main notebook (outputs stripped to keep diffs clean).
 
-- `CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented_NO_OUTPUTS.ipynb`  
-  Same notebook, explicitly output-free (recommended for version control).
+- `PIPELINE_OVERVIEW.md`  
+  High-level description of stages, inputs, and outputs.
 
 - `requirements.txt`  
   Best-effort dependency list for local execution.
-
-- `docs/PIPELINE_OVERVIEW.md`  
-  High-level description of stages, inputs, and outputs.
 
 ## Quickstart (local)
 
@@ -26,10 +23,14 @@ This repository focuses on *downstream* CNV segment analytics (recurrence summar
 python -m venv .venv
 # Linux/Mac:
 source .venv/bin/activate
+# Windows (Git Bash):
+source .venv/Scripts/activate
 # Windows (PowerShell):
 # .venv\Scripts\Activate.ps1
 
 pip install -r requirements.txt
+# If you don't have Jupyter installed:
+# pip install jupyterlab
 jupyter lab
 ```
 

@@ -3,7 +3,9 @@ message: "If you use this pipeline, please cite it."
 title: "CNV Pipeline — MMRF CoMMpass (GDC)"
 type: software
 authors:
-  - family-names: "YourLab"
-    given-names: "Team"
-version: "4.3.4"
-date-released: "2026-02-01"
+  - family-names: "Chaves"
+    given-names: "Tiago Fernando"
+version: "10.0.0"
+date-released: "2026-02-19"
+license: "MIT"
+repository-code: "https://github.com/tiagochavo87/CNV-MMRF-COMMPASS-PIPELINE"
