@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: "Chaves"
     given-names: "Tiago Fernando"
-version: "10.0.0"
+version: "10.0.1"
 date-released: "2026-02-19"
 license: "MIT"
 repository-code: "https://github.com/tiagochavo87/CNV-MMRF-COMMPASS-PIPELINE"
