@@ -11,28 +11,32 @@ This repository focuses on *downstream* CNV segment analytics (recurrence summar
 - `CNV_MMRF_COMMPASS_Pipeline_GitHub_Documented.ipynb`  
   Main notebook (outputs stripped to keep diffs clean).
 
-- `PIPELINE_OVERVIEW.md`  
+- `docs/PIPELINE_OVERVIEW.md`  
   High-level description of stages, inputs, and outputs.
 
 - `requirements.txt`  
   Best-effort dependency list for local execution.
 
+- `CITATION.cff`  
+  Citation metadata for this software/repository.
+
+- `LICENSE`  
+  MIT license.
+
 ## Quickstart (local)
 
-```bash
-python -m venv .venv
-# Linux/Mac:
-source .venv/bin/activate
-# Windows (Git Bash):
-source .venv/Scripts/activate
-# Windows (PowerShell):
-# .venv\Scripts\Activate.ps1
+    python -m venv .venv
+    # Linux/Mac:
+    source .venv/bin/activate
+    # Windows (Git Bash):
+    source .venv/Scripts/activate
+    # Windows (PowerShell):
+    # .venv\Scripts\Activate.ps1
 
-pip install -r requirements.txt
-# If you don't have Jupyter installed:
-# pip install jupyterlab
-jupyter lab
-```
+    pip install -r requirements.txt
+    # If you don't have Jupyter installed:
+    # pip install jupyterlab
+    jupyter lab
 
 Open the notebook and run it from top to bottom.
 
@@ -45,10 +49,17 @@ If you store inputs in Google Drive, mount Drive and point the notebook to your 
 
 All artifacts are written under:
 
-- `outputs/run_<RUN_ID>/raw/`
-- `outputs/run_<RUN_ID>/processed/`
-- `outputs/run_<RUN_ID>/results/`
-- `outputs/run_<RUN_ID>/logs/`
+    outputs/run_<RUN_ID>/raw/
+    outputs/run_<RUN_ID>/processed/
+    outputs/run_<RUN_ID>/results/
+    outputs/run_<RUN_ID>/logs/
+
+Key intermediate deliverables commonly produced include:
+
+- `outputs/run_<RUN_ID>/processed/file_metadata.tsv`
+- `outputs/run_<RUN_ID>/processed/combined_cnvs.txt`
+- `outputs/run_<RUN_ID>/processed/cnv_segments.parquet`
+- `outputs/run_<RUN_ID>/processed/combined_cnvs_filtrado_somatica.txt`
 
 The notebook ends with a concise list of deliverables and their paths.
 
