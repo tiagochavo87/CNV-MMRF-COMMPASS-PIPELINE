@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (CRÍTICO: Não subir dados genômicos brutos)
+data/
+inputs/
+*.tsv
+*.csv
+
+# Outputs/artifacts
+outputs/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/

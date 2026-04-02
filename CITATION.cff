@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this pipeline, please cite it."
+title: "CNV Pipeline — MMRF CoMMpass (GDC)"
+type: software
+authors:
+  - family-names: "Chaves"
+    given-names: "Tiago Fernando"
+version: "10.0.1"
+date-released: "2026-02-19"
+license: "MIT"
+repository-code: "https://github.com/tiagochavo87/CNV-MMRF-COMMPASS-PIPELINE"
