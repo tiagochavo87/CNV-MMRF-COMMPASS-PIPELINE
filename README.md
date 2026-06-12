@@ -33,7 +33,7 @@ The main notebook implements the following stages:
 
 ```text
 .
-├── CNV_MMRF_COMMPASS_Fixed_documented_for_git.ipynb
+├── CNV_MMRF_COMMPASS_V17_Rodado.ipynb
 ├── README.md
 ├── requirements.txt
 ├── LICENSE

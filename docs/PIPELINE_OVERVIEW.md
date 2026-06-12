@@ -1,6 +1,6 @@
 # Pipeline overview
 
-This document provides a high-level description of the notebook workflow implemented in `CNV_MMRF_COMMPASS_Fixed_documented_for_git.ipynb`.
+This document provides a high-level description of the notebook workflow implemented in `CNV_MMRF_COMMPASS_V17_Rodado.ipynb`.
 
 ## 1. Objective
 
